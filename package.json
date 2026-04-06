@@ -9,15 +9,25 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@orpc/client": "^1.13.13",
+    "@orpc/react-query": "^1.13.13",
+    "@orpc/server": "^1.13.13",
+    "@supabase/ssr": "^0.10.0",
+    "@supabase/supabase-js": "^2.101.1",
+    "@tanstack/react-query": "^5.96.2",
+    "drizzle-orm": "^0.45.2",
     "next": "16.2.2",
+    "postgres": "^3.4.9",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "drizzle-kit": "^0.31.10",
     "eslint": "^9",
     "eslint-config-next": "16.2.2",
     "tailwindcss": "^4",
