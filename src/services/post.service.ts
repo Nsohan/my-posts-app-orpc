@@ -10,7 +10,13 @@ import { eq } from "drizzle-orm";
 
 export const postService = {
   async list() {
-    return await db.select().from(posts).orderBy(posts.createdAt);
+    // return await db.select().from(posts).orderBy(posts.createdAt); this will return Date objects which can't be serialized to JSON, so we need to convert them to strings
+    const data = await db.select().from(posts).orderBy(posts.createdAt);
+    return data.map((post) => ({
+      ...post,
+      createdAt: post.createdAt.toISOString(),
+      updatedAt: post.updatedAt.toISOString(),
+    }));
   },
 
   async getById({ id }: GetPostInput) {
