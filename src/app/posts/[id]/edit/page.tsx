@@ -13,17 +13,19 @@ export default function EditPostPage() {
   const id = params.id as string;
 
   const [title, setTitle] = useState("");
+  const [slug, setSlug] = useState("");
   const [content, setContent] = useState("");
   const [published, setPublished] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const { data: post, isLoading } = useQuery(
-    orpc.post.getById.queryOptions({ id }),
+    orpc.post.getById.queryOptions({ input: { id } }),
   );
 
   useEffect(() => {
     if (post) {
       setTitle(post.title);
+      setSlug(post.slug);
       setContent(post.content);
       setPublished(post.published);
     }
@@ -42,6 +44,7 @@ export default function EditPostPage() {
     const result = updatePostSchema.safeParse({
       id,
       title,
+      slug,
       content,
       published,
     });
@@ -95,6 +98,23 @@ export default function EditPostPage() {
             />
             {errors.title && (
               <p className="text-red-500 text-xs mt-1">{errors.title}</p>
+            )}
+          </div>
+
+          {/* Slug */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Slug
+            </label>
+            <input
+              type="text"
+              value={slug}
+              onChange={(e) => setSlug(e.target.value)}
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Post slug"
+            />
+            {errors.slug && (
+              <p className="text-red-500 text-xs mt-1">{errors.slug}</p>
             )}
           </div>
 

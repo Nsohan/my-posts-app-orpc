@@ -1,6 +1,6 @@
 # My Posts App
 
-A Next.js 14 app for authenticated post management using Supabase, Drizzle ORM, oRPC, and React Query.
+A Next.js 16 app for authenticated post management using Supabase, Drizzle ORM, oRPC, and React Query.
 
 ## Features
 
@@ -13,7 +13,7 @@ A Next.js 14 app for authenticated post management using Supabase, Drizzle ORM, 
 
 ## Tech Stack
 
-- Next.js 14 (App Router)
+- Next.js 16 (App Router)
 - TypeScript
 - Supabase (Auth + PostgreSQL)
 - Drizzle ORM (schema + migrations)

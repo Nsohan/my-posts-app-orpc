@@ -33,6 +33,7 @@ export const postService = {
       .set({
         ...(input.title && { title: input.title }),
         ...(input.content && { content: input.content }),
+        ...(input.slug && { slug: input.slug }),
         ...(input.published !== undefined && { published: input.published }),
         updatedAt: new Date(),
       })

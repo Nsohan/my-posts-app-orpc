@@ -11,7 +11,7 @@ export default function DeletePostPage() {
   const id = params.id as string;
 
   const { data: post, isLoading } = useQuery(
-    orpc.post.getById.queryOptions({ id }),
+    orpc.post.getById.queryOptions({ input: { id } }),
   );
 
   const { mutate: deletePost, isPending } = useMutation(
